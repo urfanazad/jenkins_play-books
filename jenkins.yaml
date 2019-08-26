@@ -1,0 +1,24 @@
+---
+- hosts: appserver #groups name in inventory
+  become: yes  #to do installation you need yes
+  tasks:
+  - name: install openjdk 8
+    apt: 
+      name: java-1.8.9-openjdk.x86_64
+      state: present #will install 
+  - name: install tomcat 9
+    apt:
+     name: tomcat9
+     state: present #will install
+  - name: download jenkins to webapps/
+    get_url:
+      url: http://mirror.serverion.com/jenkins/war-stable/2.176.2/jenkins.war
+      destination: /usr/share/tomcat/webapps/jenkins.war
+
+  - name: enable and start tomcat
+    service: #to start service
+      name: tomcat
+      state: started # to start
+      enabled : yes
+
+      #take manual steps to create application and search for module for it from ansible
