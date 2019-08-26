@@ -4,7 +4,7 @@
   tasks:
   - name: install openjdk 8
     apt: 
-      name: java-1.8.9-openjdk.x86_64
+      name: openjdk-8-jdk
       state: present #will install 
   - name: install tomcat 9
     apt:
