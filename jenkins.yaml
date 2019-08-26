@@ -12,8 +12,9 @@
      state: present #will install
   - name: download jenkins to webapps/
     get_url:
-      url: http://mirror.serverion.com/jenkins/war-stable/2.176.2/jenkins.war
-      destination: /usr/share/tomcat/webapps/jenkins.war
+https://prodjenkinsreleases.blob.core.windows.net/debian-stable/jenkins_2.176.2_all.deb
+      destination: /var/lib/tomcat9/webapps/jenkins_2.176.2_all.deb
+
 
   - name: enable and start tomcat
     service: #to start service
